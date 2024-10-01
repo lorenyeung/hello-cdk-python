@@ -5,8 +5,8 @@ import aws_cdk as cdk
 from alb_stack import AlbStack
 
 app = cdk.App()
-stack_name = app.try_get_context("stack4_name")
-AlbStack(app, stack_name,
+
+AlbStack(app, "stack4name",
     env=cdk.Environment(account=os.getenv('CDK_TARGET_ACCOUNT'), region=os.getenv('CDK_TARGET_REGION')),
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
