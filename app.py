@@ -2,12 +2,11 @@
 import os
 
 import aws_cdk as cdk
-
-from hello_cdk_python.hello_cdk_python_stack import HelloCdkPythonStack
-
+from alb_stack import AlbStack
 
 app = cdk.App()
-HelloCdkPythonStack(app, "HelloCdkPythonStack",
+AlbStack(app, "stack4_name",
+    env=cdk.Environment(account=os.getenv('CDK_TARGET_ACCOUNT'), region=os.getenv('CDK_TARGET_REGION')),
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
