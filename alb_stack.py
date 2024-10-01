@@ -23,6 +23,15 @@ class AlbStack(Stack):
         # Add a listener to the ALB
         listener = alb.add_listener("MyListener", port=80)
 
+        listener.add_action(
+            "DefaultFixedResponse",
+            action=elbv2.ListenerAction.fixed_response(
+                status_code=200,
+                content_type="text/plain",
+                message_body="default response from ALB"
+            )
+        )
+
         # Output the ALB DNS name
         self.output_alb_dns_name(alb)
 
