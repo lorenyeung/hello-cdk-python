@@ -18,7 +18,8 @@ class AlbStack(Stack):
         alb = elbv2.ApplicationLoadBalancer(
             self, "MyALBTwo",
             vpc=vpc,
-            internet_facing=True
+            internet_facing=True,
+            load_balancer_name="lorenAlb"
         )
 
         # Add a listener to the ALB
