@@ -15,7 +15,7 @@ class AlbStack(Stack):
 
         # Create an Application Load Balancer
         alb = elbv2.ApplicationLoadBalancer(
-            self, "MyALB",
+            self, "MyALBTwo",
             vpc=vpc,
             internet_facing=True
         )
