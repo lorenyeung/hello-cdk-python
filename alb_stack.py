@@ -31,6 +31,8 @@ class AlbStack(Stack):
                 message_body="default response from ALB"
             )
         )
+        # remove on destroy
+        alb.apply_removal_policy(core.RemovalPolicy.DESTROY)
 
         # Output the ALB DNS name
         self.output_alb_dns_name(alb)
