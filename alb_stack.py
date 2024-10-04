@@ -3,7 +3,7 @@ from aws_cdk import (
     aws_ec2 as ec2,
     aws_elasticloadbalancingv2 as elbv2,
     aws_ecs as ecs,
-    core,
+    RemovalPolicy,
 )
 from constructs import Construct
 
@@ -33,7 +33,7 @@ class AlbStack(Stack):
             )
         )
         # remove on destroy
-        alb.apply_removal_policy(core.RemovalPolicy.DESTROY)
+        alb.apply_removal_policy(RemovalPolicy.DESTROY)
 
         # Output the ALB DNS name
         self.output_alb_dns_name(alb)
